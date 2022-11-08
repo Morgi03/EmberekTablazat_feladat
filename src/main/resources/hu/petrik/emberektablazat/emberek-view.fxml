@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.SpinnerValueFactory?>
 <VBox alignment="CENTER" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.petrik.emberektablazat.EmberekController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -17,13 +19,20 @@
       <HBox alignment="TOP_CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
          <children>
             <TextField fx:id="nevMezo" promptText="Név" />
-             <Spinner fx:id="korMezo" />
+             <Spinner fx:id="korMezo">
+                 <valueFactory>
+                     <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="30"
+                                                 min="1" max="200"/>
+
+                 </valueFactory>
+             </Spinner>
             <Button mnemonicParsing="false" onAction="#hozzaadClick" prefWidth="100.0" text="Hozzáad" />
          </children>
          <VBox.margin>
             <Insets />
          </VBox.margin>
       </HBox>
+      <Button fx:id="torlesClick" mnemonicParsing="false" text="Törlés" prefWidth="Infinity"/>
       <TableView fx:id="emberek" prefHeight="200.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="nevOszlop" minWidth="50.0" prefWidth="200.0" text="Név" />

@@ -49,4 +49,18 @@ public class EmberekController {
         }
     }
 
+    @FXML
+    private void torlesClick() {
+        int index = emberek.getSelectionModel().getSelectedIndex();
+        if (index == -1) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Figyelmeztetés");
+            alert.setContentText("Törléshez előbb válasszon ki elemet");
+            alert.show();
+            return;
+        }
+        Ember torlendoEmber = emberek.getSelectionModel().getSelectedItem();
+        emberek.getItems().remove(torlendoEmber);
+    }
+
 }
